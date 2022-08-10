@@ -8,6 +8,7 @@ let rndCount = 1;
 let cntDwnTimer = 2000;
 let btnFontSize = 20;
 let btnPadding = 10;
+let scoreCnt = 0;
 
 
 // Sentient Hyper Optimized Div Arrangement Function
@@ -45,25 +46,24 @@ function roundStart()
   // generates random positional coordinates for the new button
   let pxlHeight = $(window).height();
   let pxlWidth = $(window).width();
-  let y = Math.floor(Math.random()*pxlHeight);
-  let x = Math.floor(Math.random()*pxlWidth);
+  let y = Math.floor(Math.random()* (pxlHeight -70));
+  let x = Math.floor(Math.random()* (pxlWidth - 70));
   rStartB.style.top = y+'px';
   rStartB.style.left = x+'px';
   rStartB.style.position = 'absolute';
 
-
   
   // remove the button on click
   rStartB.addEventListener('click', rmvBtn)
-  // rStartB.addEventListener('click', scoreCnt += 1)
 };
 
 // removes button and clears timer on click
 function rmvBtn() 
 {
+  scoreCnt += 1;
+  console.log(scoreCnt)
   clearTimeout(btnTimer);
   r1.parentNode.removeChild(r1);
-  scoreCnt += 1
 };
 
 // reduces size and countdown timer of the button
@@ -86,15 +86,15 @@ function btnTmrReduction()
 };
 
 
-
-
-let scoreCnt = 0;
-
 const tally = document.createElement('div');
 let para = document.createTextNode(`Your Score: ${scoreCnt}`);
 tally.appendChild(para);
 document.getElementsByTagName('body')[0].appendChild(tally);
 
+
+
+
+// $('#r1').css('cursor', 'url(Crosshair.png))'
 
 
 
@@ -115,7 +115,7 @@ document.getElementsByTagName('body')[0].appendChild(tally);
 
 
 // cursor url
-// style.cursor = url('//crosshair.themeta.gg/?sh=angled%20brackets,rt=0,sp=16,ln=24,wd=4,cl=255|0|0|82,skw=6,skc=255|255|0|100');
+// style.cursor = url('');
 
 
 
