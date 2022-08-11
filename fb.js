@@ -53,7 +53,11 @@ function roundStart()
   rStartB.style.left = x+'px';
   rStartB.style.position = 'absolute';
   
-  gameOver()
+
+  if (document.getElementById('r1').clicked === false) {
+    gameOver()
+  };
+
   
   // remove the button on click
   rStartB.addEventListener('click', twoBirds)
@@ -106,13 +110,10 @@ function btnTmrReduction()
 
 function gameOver() 
 {
-  if (cntDwnTimer < 5) {
-    const finale = document.createElement('div');
-    finale.innerHTML = 'GAME OVER!';
-    finale.style.left = 'center';
-    document.body.appendChild(finale);
-    console.log(finale);
-  }
+  const finale = document.createElement('div');
+  document.body.appendChild(finale);
+  finale.innerHTML = 'GAME OVER!';
+  console.log(finale);
 };
 
 
