@@ -42,15 +42,15 @@ body {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
 
+  background-size: cover;
   background-position: center;
   min-width: 98vw;
   min-height: 98vh;
   
 }
-/* 
-.url {
-  cursor: url(crosshair.png), auto;
-}; */
+
+#r1:hover {
+  cursor: url(crosshair.png) 54 54, auto;
+}
 
