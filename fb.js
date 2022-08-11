@@ -42,29 +42,39 @@ function roundStart()
   // reduces the button size and countdown timer
   btnSizeReduction()
   btnTmrReduction()
-
+  
   // generates random positional coordinates for the new button
   let pxlHeight = $(window).height();
   let pxlWidth = $(window).width();
-  let y = Math.floor(Math.random()* (pxlHeight -70));
-  let x = Math.floor(Math.random()* (pxlWidth - 70));
+  let y = Math.floor(Math.random() * (pxlHeight -75));
+  let x = Math.floor(Math.random() * (pxlWidth - 75));
   rStartB.style.top = y+'px';
   rStartB.style.left = x+'px';
   rStartB.style.position = 'absolute';
-
+  
   
   // remove the button on click
-  rStartB.addEventListener('click', rmvBtn)
+  rStartB.addEventListener('click', twoBirds)
 };
+
+// calls both functions at the same time
+function twoBirds() {
+  rmvBtn()
+  upDateScore()
+}
 
 // removes button and clears timer on click
 function rmvBtn() 
 {
-  scoreCnt += 1;
-  console.log(scoreCnt)
   clearTimeout(btnTimer);
   r1.parentNode.removeChild(r1);
 };
+
+// updates the user score
+function upDateScore() {
+  scoreCnt += 1;
+  document.getElementById('yourScore').innerHTML = `${scoreCnt}`;
+}
 
 // reduces size and countdown timer of the button
 function btnSizeReduction() 
@@ -86,10 +96,10 @@ function btnTmrReduction()
 };
 
 
-const tally = document.createElement('div');
-let para = document.createTextNode(`Your Score: ${scoreCnt}`);
-tally.appendChild(para);
-document.getElementsByTagName('body')[0].appendChild(tally);
+// const tally = document.createElement('div');
+// let para = document.createTextNode(`Your Score: ${scoreCnt}`);
+// tally.appendChild(para);
+// document.getElementsByTagName('body')[0].appendChild(tally);
 
 
 
