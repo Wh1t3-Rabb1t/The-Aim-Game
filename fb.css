@@ -1,21 +1,4 @@
 
-
-
-/* .grid {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 97vh;
-  position: relative;
-  } */
-  
-/* to center button 
-make a conditional statement that divides the screen pixel amount by 2 on either axis */
-
-/* #startB {
-  border-radius: 50%;
-} */
-
 .scoreBoard {
   font-size: 35px;
   font-family: 'Courier New', Courier, monospace;
@@ -51,10 +34,10 @@ make a conditional statement that divides the screen pixel amount by 2 on either
 }
 
 body {
-  background-color: red;
+  /* background-color: red; */
 
 
-  /* background-image:url('https://i.gifer.com/IDIm.gif'); background-repeat:repeat; */
+  background-image:url('https://i.gifer.com/IDIm.gif'); background-repeat:repeat;
 
   -webkit-background-size: cover;
   -moz-background-size: cover;

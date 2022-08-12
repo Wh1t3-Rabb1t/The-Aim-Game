@@ -2,14 +2,31 @@
 // game begins
 document.getElementById('startB').onclick = roundStart;
 
-
 // variables containing important data
 let btnTimer;
 let rndCount = 1;
-let cntDwnTimer = 2000;
+let cntDwnTimer = {
+  time: 2000,
+  isGameOver: false,
+};
 let btnFontSize = 20;
 let btnPadding = 10;
 let scoreCnt = 0;
+
+
+///////
+
+let ogScore = localStorage.getItem('highestScore');
+let yourScore = document.getElementById('yourScore').innerHTML
+
+localStorage.setItem('highestScore', yourScore);
+let theScore = localStorage.getItem('highestScore');
+
+if (yourScore >= ogScore) {
+  localStorage.setItem('highestScore', yourScore);
+};
+
+/////
 
 
 // Sentient Hyper Optimized Div Arrangement Function
@@ -25,7 +42,6 @@ function SHODAF()
 };
 $(window).on('load resize', function(){ SHODAF() });
 
-
 // the one function that rules them all
 function roundStart() 
 {
@@ -38,7 +54,7 @@ function roundStart()
   rStartB.innerHTML = `Round ${rndCount}`;
   rndCount += 1;
   document.body.appendChild(rStartB);
-  btnTimer = setTimeout(rmvBtn, cntDwnTimer);
+  btnTimer = setTimeout(rmvBtn, cntDwnTimer.time);
   
   // reduces the button size and countdown timer
   btnSizeReduction()
@@ -53,39 +69,61 @@ function roundStart()
   rStartB.style.left = x+'px';
   rStartB.style.position = 'absolute';
   
-
-  if (document.getElementById('r1').clicked === false) {
-    gameOver()
-  };
-
-  
   // remove the button on click
   rStartB.addEventListener('click', twoBirds)
 };
 
+function dorTimeF(isGameOver) 
+{
+  if (isGameOver) {
+    console.log('game over')
+    gameOver()
+  } else if (!isGameOver) {
+    console.log('game on')
+    return
+  }
+};
+
+function gameOver() 
+{
+  const finale = document.createElement('div');
+  document.body.appendChild(finale);
+  finale.innerHTML = 'GAME OVER!';
+  finale.style.textAlign = 'center';
+  finale.style.fontWeight = 'bold';
+  finale.style.fontSize = '40px';
+  finale.style.color = 'red';
+  theScore = localStorage.getItem('highestScore');
+  document.getElementById('yourScore').innerHTML = `${0}`;
+  document.getElementById('hScore').innerHTML = `${theScore}`;
+  console.log(theScore);
+  setTimeout(function(){
+    finale.remove()
+  }, 2000);
+};
 
 // calls both functions at the same time
 function twoBirds() 
 {
-  rmvBtn()
+  cntDwnTimer.isGameOver = false
+  rmvBtn(cntDwnTimer.isGameOver)
   upDateScore()
 };
 
-
 // removes button and clears timer on click
-function rmvBtn() 
+function rmvBtn(isGameOver = true) 
 {
+  console.log(isGameOver);
+  dorTimeF(isGameOver);
   clearTimeout(btnTimer);
   r1.parentNode.removeChild(r1);
 };
-
 
 // updates the user score
 function upDateScore() {
   scoreCnt += 1;
   document.getElementById('yourScore').innerHTML = `${scoreCnt}`;
 };
-
 
 // reduces size and countdown timer of the button
 function btnSizeReduction() 
@@ -96,25 +134,24 @@ function btnSizeReduction()
   }
 };
 
-
 // reduces length of the button timer
 function btnTmrReduction() 
 {
-  if (cntDwnTimer > 1000) {
-    cntDwnTimer -= 120;
-  } else if (cntDwnTimer > 500) {
-    cntDwnTimer -= 60;
-  } else cntDwnTimer -= 30;
+  if (cntDwnTimer.time > 1000) {
+    cntDwnTimer.time -= 120;
+  } else if (cntDwnTimer.time > 500) {
+    cntDwnTimer.time -= 60;
+  } else cntDwnTimer.time -= 30;
 };
 
 
-function gameOver() 
-{
-  const finale = document.createElement('div');
-  document.body.appendChild(finale);
-  finale.innerHTML = 'GAME OVER!';
-  console.log(finale);
-};
+
+
+
+
+
+
+
 
 
 
