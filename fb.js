@@ -5,29 +5,13 @@ document.getElementById('startB').onclick = roundStart;
 // variables containing important data
 let btnTimer;
 let rndCount = 1;
+let btnFontSize = 20;
+let btnPadding = 10;
+let scoreCnt = 0;
 let cntDwnTimer = {
   time: 2000,
   isGameOver: false,
 };
-let btnFontSize = 20;
-let btnPadding = 10;
-let scoreCnt = 0;
-
-
-///////
-
-let ogScore = localStorage.getItem('highestScore');
-let yourScore = document.getElementById('yourScore').innerHTML
-
-localStorage.setItem('highestScore', yourScore);
-let theScore = localStorage.getItem('highestScore');
-
-if (yourScore >= ogScore) {
-  localStorage.setItem('highestScore', yourScore);
-};
-
-/////
-
 
 // Sentient Hyper Optimized Div Arrangement Function
 function SHODAF() 
@@ -76,10 +60,8 @@ function roundStart()
 function dorTimeF(isGameOver) 
 {
   if (isGameOver) {
-    console.log('game over')
     gameOver()
   } else if (!isGameOver) {
-    console.log('game on')
     return
   }
 };
@@ -144,125 +126,18 @@ function btnTmrReduction()
   } else cntDwnTimer.time -= 30;
 };
 
+localStorage.setItem('highestScore', yourScore);
+let theScore = localStorage.getItem('highestScore');
+
+let ogScore = localStorage.getItem('highestScore');
+let yourScore = document.getElementById('yourScore').innerHTML
+
+if (yourScore >= ogScore) 
+{
+  localStorage.setItem('highestScore', yourScore);
+};
 
 
 
 
 
-
-
-
-
-
-
-
-
-// const tally = document.createElement('div');
-// let para = document.createTextNode(`Your Score: ${scoreCnt}`);
-// tally.appendChild(para);
-// document.getElementsByTagName('body')[0].appendChild(tally);
-
-
-
-
-// $('#r1').css('cursor', 'url(Crosshair.png))'
-
-
-
-
-
-
-// create a scote counter with win loss logic
-// function createDiv()
-// {
-//   const tally = document.createElement('div');
-//   let para = document.createTextNode(`Your Score: ${scoreCnt}`);
-//   tally.appendChild(para);
-// };
-// window.onload=createDiv();
-
-// rStartB.addEventListener('click', createDiv())
-
-
-// cursor url
-// style.cursor = url('');
-
-
-
-
-
-
-// OG gigaCHAD jQuery button center solution
-// setInterval(function() 
-// {
-//   let btnH = $(startB).height() / 2;
-//   let btnW = $(startB).width() / 2;
-//   let pxH = $(window).height() / 2 - btnH;
-//   let pxW = $(window).width() / 2 - btnW;
-//   startB.style.top = pxH+'px';
-//   startB.style.left = pxW+'px';
-//   startB.style.position = 'absolute';
-// }, 1000);
-
-
-
-
-
-// function btnGeneration() {
-//   let pxlHeight = $(window).height();
-//   let pxlWidth = $(window).width();
-//   let y = Math.floor(Math.random()*pxlHeight)-100;
-//   let x = Math.floor(Math.random()*pxlWidth)-100;
-//   rStartB.style.top = y+'px';
-//   rStartB.style.left = x+'px';
-//   rStartB.style.position = 'absolute';
-// }
-
-
-// let btnTimer = setTimeout(rmvBtn, 3000);
-
-// function myStopFunction() {
-//   clearTimeout(btnTimer);
-// }
-
-// document.getElementById('r1') function timer() {
-//   r1.parentNode.removeChild(r1);
-// }
-
-
-
-
-// var b = document.querySelector("rStartB");
-// b.addEventListener("click",change);
-// function change()
-// {
-//     var i = Math.floor(Math.random()*500)+1;
-//     var j = Math.floor(Math.random()*500)+1;
-//     b.style.left = i+"px";
-//     b.style.top = j+"px";
-// }
-
-
-
-// let bPos = startB.getBoundingClientRect()
-
-// console.log(bPos)
-
-// let pxlHeight;
-// let pxlWidth;
-
-// $( document ).ready(function() {
-//   let pxlHeight = $(window).height();
-//   let pxlWidth = $(window).width();
-//   console.log(pxlHeight)
-//   console.log(pxlWidth)
-// });
-
-
-
-// document.getElementById('startB').style.left = bPos.x;
-// document.getElementById('startB').style.top = bPos.y;
-
-
-// // document.getElementById('startB').style.left = pxlWidth+'px';
-// // document.getElementById('startB').style.top = pxlHeight+'px';
