@@ -57,6 +57,7 @@ function roundStart()
   rStartB.addEventListener('click', twoBirds)
 };
 
+// game over logic, thanks to Dor the JS king for help on this
 function dorTimeF(isGameOver) 
 {
   if (isGameOver) {
@@ -66,6 +67,7 @@ function dorTimeF(isGameOver)
   }
 };
 
+// displays the game over message
 function gameOver() 
 {
   const finale = document.createElement('div');
@@ -102,7 +104,8 @@ function rmvBtn(isGameOver = true)
 };
 
 // updates the user score
-function upDateScore() {
+function upDateScore()
+{
   scoreCnt += 1;
   document.getElementById('yourScore').innerHTML = `${scoreCnt}`;
 };
@@ -125,6 +128,8 @@ function btnTmrReduction()
     cntDwnTimer.time -= 60;
   } else cntDwnTimer.time -= 30;
 };
+
+
 
 // localStorage.setItem('highestScore', yourScore);
 // let theScore = localStorage.getItem('highestScore');
