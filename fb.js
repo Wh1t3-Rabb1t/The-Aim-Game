@@ -126,16 +126,16 @@ function btnTmrReduction()
   } else cntDwnTimer.time -= 30;
 };
 
-localStorage.setItem('highestScore', yourScore);
-let theScore = localStorage.getItem('highestScore');
+// localStorage.setItem('highestScore', yourScore);
+// let theScore = localStorage.getItem('highestScore');
 
-let ogScore = localStorage.getItem('highestScore');
-let yourScore = document.getElementById('yourScore').innerHTML
+// let ogScore = localStorage.getItem('highestScore');
+// let yourScore = document.getElementById('yourScore').innerHTML
 
-if (yourScore >= ogScore) 
-{
-  localStorage.setItem('highestScore', yourScore);
-};
+// if (yourScore >= ogScore) 
+// {
+//   localStorage.setItem('highestScore', yourScore);
+// };
 
 
 
